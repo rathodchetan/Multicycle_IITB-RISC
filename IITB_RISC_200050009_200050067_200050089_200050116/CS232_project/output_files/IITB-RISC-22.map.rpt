@@ -1,0 +1,770 @@
+Analysis & Synthesis report for IITB-RISC-22
+Fri May  6 22:53:40 2022
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |IITB_RISC_22|control_path:control_path_inst|Q
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "temp_reg:T4"
+ 13. Port Connectivity Checks: "temp_reg:T3"
+ 14. Port Connectivity Checks: "temp_reg:T2"
+ 15. Port Connectivity Checks: "temp_reg:T1"
+ 16. Port Connectivity Checks: "Reg_file:RF"
+ 17. Port Connectivity Checks: "temp_reg:IR"
+ 18. Port Connectivity Checks: "temp_reg:PC"
+ 19. Port Connectivity Checks: "alu:alu4"
+ 20. Port Connectivity Checks: "alu:alu3"
+ 21. Port Connectivity Checks: "alu:alu2"
+ 22. Port Connectivity Checks: "control_path:control_path_inst"
+ 23. Port Connectivity Checks: "alu:alu1|adder:instSub"
+ 24. Port Connectivity Checks: "alu:alu1"
+ 25. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Fri May  6 22:53:40 2022       ;
+; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name               ; IITB-RISC-22                                ;
+; Top-level Entity Name       ; IITB_RISC_22                                ;
+; Family                      ; MAX V                                       ;
+; Total logic elements        ; 0                                           ;
+; Total pins                  ; 2                                           ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                            ; IITB_RISC_22       ; IITB-RISC-22       ;
+; Family name                                                      ; MAX V              ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                           ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                    ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+; IITB_RISC_22.vhd                 ; yes             ; User VHDL File  ; /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd ;         ;
+; alu.vhd                          ; yes             ; User VHDL File  ; /home/dyuneesh/Desktop/cs232workingdir/project/alu.vhd          ;         ;
+; data_memory.vhd                  ; yes             ; User VHDL File  ; /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd  ;         ;
+; ROM.vhd                          ; yes             ; User VHDL File  ; /home/dyuneesh/Desktop/cs232workingdir/project/ROM.vhd          ;         ;
+; temp_reg.vhd                     ; yes             ; User VHDL File  ; /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd     ;         ;
+; reg_file.vhd                     ; yes             ; User VHDL File  ; /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd     ;         ;
+; control_path.vhd                 ; yes             ; User VHDL File  ; /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd ;         ;
+; adder.vhd                        ; yes             ; User VHDL File  ; /home/dyuneesh/Desktop/cs232workingdir/project/adder.vhd        ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 0     ;
+;     -- Combinational with no register       ; 0     ;
+;     -- Register only                        ; 0     ;
+;     -- Combinational with a register        ; 0     ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- 2 input functions                    ; 0     ;
+;     -- 1 input functions                    ; 0     ;
+;     -- 0 input functions                    ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 0     ;
+;     -- asynchronous clear/load mode         ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+; I/O pins                                    ; 2     ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Entity Name  ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+--------------+
+; |IITB_RISC_22              ; 0 (0)       ; 0            ; 0          ; 2    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |IITB_RISC_22       ; IITB_RISC_22 ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |IITB_RISC_22|control_path:control_path_inst|Q                                                                                                              ;
++-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+------+------+------+------+------+------+------+------+------+------+
+; Name  ; Q.S21 ; Q.S20 ; Q.S19 ; Q.S18 ; Q.S17 ; Q.S16 ; Q.S15 ; Q.S14 ; Q.S13 ; Q.S12 ; Q.S11 ; Q.S10 ; Q.S9 ; Q.S8 ; Q.S7 ; Q.S6 ; Q.S5 ; Q.S4 ; Q.S3 ; Q.S2 ; Q.S1 ; Q.S0 ;
++-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+------+------+------+------+------+------+------+------+------+------+
+; Q.S0  ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ;
+; Q.S1  ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 1    ;
+; Q.S2  ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 1    ;
+; Q.S3  ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 1    ;
+; Q.S4  ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S5  ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S6  ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S7  ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S8  ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S9  ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S10 ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S11 ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S12 ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S13 ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S14 ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S15 ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S16 ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S17 ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S18 ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S19 ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S20 ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; Q.S21 ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
++-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+------+------+------+------+------+------+------+------+------+------+
+
+
++-------------------------------------------------------------+
+; Registers Removed During Synthesis                          ;
++----------------------------------------+--------------------+
+; Register name                          ; Reason for Removal ;
++----------------------------------------+--------------------+
+; control_path:control_path_inst|Q.S0    ; Lost fanout        ;
+; control_path:control_path_inst|Q.S1    ; Lost fanout        ;
+; control_path:control_path_inst|Q.S2    ; Lost fanout        ;
+; control_path:control_path_inst|Q.S3    ; Lost fanout        ;
+; control_path:control_path_inst|Q.S4    ; Lost fanout        ;
+; control_path:control_path_inst|Q.S5    ; Lost fanout        ;
+; control_path:control_path_inst|Q.S6    ; Lost fanout        ;
+; control_path:control_path_inst|Q.S7    ; Lost fanout        ;
+; control_path:control_path_inst|Q.S8    ; Lost fanout        ;
+; control_path:control_path_inst|Q.S9    ; Lost fanout        ;
+; control_path:control_path_inst|Q.S10   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S11   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S12   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S13   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S14   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S15   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S16   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S17   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S18   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S19   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S20   ; Lost fanout        ;
+; control_path:control_path_inst|Q.S21   ; Lost fanout        ;
+; Total Number of Removed Registers = 22 ;                    ;
++----------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |IITB_RISC_22|alu2_B[4]                                 ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |IITB_RISC_22|Reg_file:RF|Mux27                         ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |IITB_RISC_22|Reg_file:RF|Mux14                         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |IITB_RISC_22|to_D3[4]                                  ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |IITB_RISC_22|to_D3[15]                                 ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |IITB_RISC_22|to_A3[2]                                  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |IITB_RISC_22|to_T3[0]                                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |IITB_RISC_22|control_path:control_path_inst|Selector27 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |IITB_RISC_22|control_path:control_path_inst|Selector24 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |IITB_RISC_22|control_path:control_path_inst|Selector22 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |IITB_RISC_22|control_path:control_path_inst|Selector1  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |IITB_RISC_22|control_path:control_path_inst|Selector32 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |IITB_RISC_22|control_path:control_path_inst|Selector8  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |IITB_RISC_22|control_path:control_path_inst|Selector15 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |IITB_RISC_22|control_path:control_path_inst|Selector17 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |IITB_RISC_22|control_path:control_path_inst|Selector19 ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |IITB_RISC_22|to_pc[0]                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "temp_reg:T4"                                                                       ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                             ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; data ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "temp_reg:T3"                                                                       ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                             ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; data ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "temp_reg:T2"                                                                       ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                             ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; data ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "temp_reg:T1"                                                                       ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                             ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; data ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Reg_file:RF"                                                                          ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; output ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "temp_reg:IR"                                                                       ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                             ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; data ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "temp_reg:PC"                                                                       ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                             ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; data ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu4"                                                                               ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; b[15..9] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cin      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sel[1]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sel[0]   ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cy       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; z        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu3"                                                                           ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; cin  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cy   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; z    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "alu:alu2"     ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; cin    ; Input ; Info     ; Stuck at GND ;
+; sel[0] ; Input ; Info     ; Stuck at VCC ;
++--------+-------+----------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control_path:control_path_inst"                                                          ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; t[40..33] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; t[28..24] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu1|adder:instSub"                                                                  ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; carry_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu1"                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; b      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cin    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; sel[1] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sel[0] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cy     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; z      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri May  6 22:53:32 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off IITB-RISC-22 -c IITB-RISC-22
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file IITB_RISC_22.vhd
+    Info (12022): Found design unit 1: IITB_RISC_22-risc_arch File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 13
+    Info (12023): Found entity 1: IITB_RISC_22 File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: alu-alu_arch File: /home/dyuneesh/Desktop/cs232workingdir/project/alu.vhd Line: 17
+    Info (12023): Found entity 1: alu File: /home/dyuneesh/Desktop/cs232workingdir/project/alu.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file data_memory.vhd
+    Info (12022): Found design unit 1: data_memory-data_mem_arch File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 15
+    Info (12023): Found entity 1: data_memory File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file ROM.vhd
+    Info (12022): Found design unit 1: ROM-ROM_arch File: /home/dyuneesh/Desktop/cs232workingdir/project/ROM.vhd Line: 13
+    Info (12023): Found entity 1: ROM File: /home/dyuneesh/Desktop/cs232workingdir/project/ROM.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file temp_reg.vhd
+    Info (12022): Found design unit 1: temp_reg-temp_reg_arch File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 11
+    Info (12023): Found entity 1: temp_reg File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 4
+Info (12021): Found 3 design units, including 1 entities, in source file reg_file.vhd
+    Info (12022): Found design unit 1: array_type File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 6
+    Info (12022): Found design unit 2: Reg_file-Reg_file_arch File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 26
+    Info (12023): Found entity 1: Reg_file File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file control_path.vhd
+    Info (12022): Found design unit 1: control_path-fsm File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 16
+    Info (12023): Found entity 1: control_path File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file adder.vhd
+    Info (12022): Found design unit 1: adder-adder_arch File: /home/dyuneesh/Desktop/cs232workingdir/project/adder.vhd Line: 13
+    Info (12023): Found entity 1: adder File: /home/dyuneesh/Desktop/cs232workingdir/project/adder.vhd Line: 3
+Info (12127): Elaborating entity "IITB_RISC_22" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at IITB_RISC_22.vhd(15): object "output" assigned a value but never read File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 15
+Warning (10492): VHDL Process Statement warning at IITB_RISC_22.vhd(105): signal "out_ir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 105
+Warning (10631): VHDL Process Statement warning at IITB_RISC_22.vhd(103): inferring latch(es) for signal or variable "C", which holds its previous value in one or more paths through the process File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 103
+Warning (10631): VHDL Process Statement warning at IITB_RISC_22.vhd(103): inferring latch(es) for signal or variable "Z", which holds its previous value in one or more paths through the process File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 103
+Info (10041): Inferred latch for "Z" at IITB_RISC_22.vhd(103) File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 103
+Info (10041): Inferred latch for "C" at IITB_RISC_22.vhd(103) File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 103
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu1" File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 82
+Warning (10036): Verilog HDL or VHDL warning at alu.vhd(28): object "carry2" assigned a value but never read File: /home/dyuneesh/Desktop/cs232workingdir/project/alu.vhd Line: 28
+Warning (10492): VHDL Process Statement warning at alu.vhd(49): signal "carry1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/alu.vhd Line: 49
+Warning (10631): VHDL Process Statement warning at alu.vhd(46): inferring latch(es) for signal or variable "CY", which holds its previous value in one or more paths through the process File: /home/dyuneesh/Desktop/cs232workingdir/project/alu.vhd Line: 46
+Info (10041): Inferred latch for "CY" at alu.vhd(46) File: /home/dyuneesh/Desktop/cs232workingdir/project/alu.vhd Line: 46
+Info (12128): Elaborating entity "adder" for hierarchy "alu:alu1|adder:instadd" File: /home/dyuneesh/Desktop/cs232workingdir/project/alu.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at adder.vhd(23): signal "carry_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/adder.vhd Line: 23
+Info (12128): Elaborating entity "control_path" for hierarchy "control_path:control_path_inst" File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at control_path.vhd(227): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 227
+Warning (10492): VHDL Process Statement warning at control_path.vhd(228): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 228
+Warning (10492): VHDL Process Statement warning at control_path.vhd(233): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 233
+Warning (10492): VHDL Process Statement warning at control_path.vhd(234): signal "Z" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 234
+Warning (10631): VHDL Process Statement warning at control_path.vhd(201): inferring latch(es) for signal or variable "nQ", which holds its previous value in one or more paths through the process File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S21" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S20" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S19" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S18" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S17" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S16" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S15" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S14" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S13" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S12" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S11" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S10" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S9" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S8" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S7" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S6" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S5" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S4" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S3" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S2" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S1" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (10041): Inferred latch for "nQ.S0" at control_path.vhd(201) File: /home/dyuneesh/Desktop/cs232workingdir/project/control_path.vhd Line: 201
+Info (12128): Elaborating entity "temp_reg" for hierarchy "temp_reg:PC" File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 134
+Warning (10492): VHDL Process Statement warning at temp_reg.vhd(15): signal "data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 15
+Warning (10492): VHDL Process Statement warning at temp_reg.vhd(17): signal "dataIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 17
+Warning (10631): VHDL Process Statement warning at temp_reg.vhd(13): inferring latch(es) for signal or variable "dataOut", which holds its previous value in one or more paths through the process File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Warning (10631): VHDL Process Statement warning at temp_reg.vhd(13): inferring latch(es) for signal or variable "data", which holds its previous value in one or more paths through the process File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[0]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[1]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[2]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[3]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[4]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[5]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[6]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[7]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[8]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[9]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[10]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[11]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[12]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[13]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[14]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "data[15]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[0]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[1]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[2]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[3]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[4]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[5]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[6]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[7]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[8]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[9]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[10]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[11]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[12]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[13]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[14]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (10041): Inferred latch for "dataOut[15]" at temp_reg.vhd(13) File: /home/dyuneesh/Desktop/cs232workingdir/project/temp_reg.vhd Line: 13
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:ROM_inst" File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 140
+Info (12128): Elaborating entity "Reg_file" for hierarchy "Reg_file:RF" File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 160
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(36): signal "Regs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(36): signal "A1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(37): signal "Regs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(37): signal "A2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(40): signal "D3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 40
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(40): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 40
+Warning (10631): VHDL Process Statement warning at reg_file.vhd(33): inferring latch(es) for signal or variable "D1", which holds its previous value in one or more paths through the process File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Warning (10631): VHDL Process Statement warning at reg_file.vhd(33): inferring latch(es) for signal or variable "D2", which holds its previous value in one or more paths through the process File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Warning (10631): VHDL Process Statement warning at reg_file.vhd(33): inferring latch(es) for signal or variable "Regs", which holds its previous value in one or more paths through the process File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][0]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][1]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][2]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][3]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][4]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][5]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][6]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][7]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][8]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][9]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][10]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][11]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][12]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][13]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][14]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[0][15]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][0]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][1]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][2]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][3]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][4]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][5]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][6]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][7]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][8]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][9]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][10]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][11]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][12]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][13]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][14]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[1][15]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][0]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][1]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][2]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][3]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][4]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][5]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][6]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][7]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][8]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][9]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][10]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][11]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][12]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][13]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][14]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[2][15]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][0]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][1]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][2]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][3]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][4]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][5]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][6]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][7]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][8]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][9]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][10]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][11]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][12]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][13]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][14]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[3][15]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][0]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][1]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][2]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][3]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][4]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][5]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][6]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][7]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][8]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][9]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][10]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][11]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][12]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][13]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][14]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[4][15]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][0]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][1]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][2]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][3]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][4]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][5]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][6]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][7]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][8]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][9]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][10]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][11]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][12]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][13]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][14]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[5][15]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][0]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][1]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][2]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][3]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][4]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][5]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][6]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][7]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][8]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][9]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][10]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][11]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][12]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][13]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][14]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[6][15]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][0]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][1]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][2]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][3]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][4]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][5]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][6]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][7]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][8]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][9]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][10]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][11]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][12]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][13]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][14]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "Regs[7][15]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[0]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[1]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[2]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[3]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[4]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[5]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[6]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[7]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[8]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[9]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[10]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[11]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[12]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[13]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[14]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D2[15]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[0]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[1]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[2]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[3]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[4]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[5]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[6]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[7]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[8]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[9]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[10]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[11]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[12]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[13]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[14]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (10041): Inferred latch for "D1[15]" at reg_file.vhd(33) File: /home/dyuneesh/Desktop/cs232workingdir/project/reg_file.vhd Line: 33
+Info (12128): Elaborating entity "data_memory" for hierarchy "data_memory:DATA_MEM" File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 196
+Warning (10492): VHDL Process Statement warning at data_memory.vhd(22): signal "RAM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at data_memory.vhd(22): signal "RAM_ADDR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at data_memory.vhd(25): signal "RAM_DATA_IN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at data_memory.vhd(25): signal "RAM_ADDR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 25
+Warning (10631): VHDL Process Statement warning at data_memory.vhd(19): inferring latch(es) for signal or variable "RAM_DATA_OUT", which holds its previous value in one or more paths through the process File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[0]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[1]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[2]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[3]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[4]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[5]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[6]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[7]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[8]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[9]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[10]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[11]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[12]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[13]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[14]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Info (10041): Inferred latch for "RAM_DATA_OUT[15]" at data_memory.vhd(19) File: /home/dyuneesh/Desktop/cs232workingdir/project/data_memory.vhd Line: 19
+Warning (113028): 48 out of 2048 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: /home/dyuneesh/Desktop/cs232workingdir/project/db/IITB-RISC-22.ram0_ROM_16bd8.hdl.mif Line: 1
+    Warning (113027): Addresses ranging from 2000 to 2047 are not initialized File: /home/dyuneesh/Desktop/cs232workingdir/project/db/IITB-RISC-22.ram0_ROM_16bd8.hdl.mif Line: 1
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (17049): 22 registers lost all their fanouts during netlist optimizations.
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 9
+    Warning (15610): No output dependent on input pin "reset" File: /home/dyuneesh/Desktop/cs232workingdir/project/IITB_RISC_22.vhd Line: 9
+Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
+    Info: Peak virtual memory: 410 megabytes
+    Info: Processing ended: Fri May  6 22:53:40 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:18
+
+

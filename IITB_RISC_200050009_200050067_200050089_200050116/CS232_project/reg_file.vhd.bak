@@ -1,0 +1,27 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity Reg_file is
+	port( RF_D3: in std_logic_vector( 15 downto 0); RF_A1, RF_A2, RF_A3: in std_logic_vector( 2 downto 0);Re_en, Wr_en: in std_logic; RF_D1, RF_D2: out std_logic_vector (15 downto 0));
+end entity;
+
+architecture Reg_file_arc of Reg_file is
+
+	type Reg_bytes is array ( 7 downto 0) of std_logic_vector (15 downto 0);
+	signal Regs: Reg_bytes :=(others => x"0000");
+
+begin
+   process (Re_en, Wr_en) is
+	begin
+		if Re_en = '1' then
+			RF_D1 <= Regs(to_integer(unsigned(RF_A1)));
+			RF_D2 <= Regs(to_integer(unsigned(RF_A2)));
+		end if;
+		if Wr_en = '1' then
+			Regs(to_integer(unsigned(RF_A3))) <= RF_D3; 
+		end if;
+    end process;
+
+end Reg_file_arc ;

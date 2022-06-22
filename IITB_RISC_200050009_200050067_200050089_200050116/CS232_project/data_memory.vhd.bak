@@ -1,0 +1,29 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+-- A 65536x16 single-port RAM in VHDL
+entity Single_port_RAM_VHDL is
+	port(
+	 RAM_ADDR: in std_logic_vector(15 downto 0);
+	 RAM_DATA_IN: in std_logic_vector(15 downto 0); 
+	 RAM_WR, RAM_RE: in std_logic;  
+	 RAM_DATA_OUT: out std_logic_vector(15 downto 0) 
+	);
+end Single_port_RAM_VHDL;
+
+architecture Behavioral of Single_port_RAM_VHDL is
+	type RAM_ARRAY is array (0 to 65535 ) of std_logic_vector (15 downto 0);
+	signal RAM: RAM_ARRAY :=( others => x"0000" ); 
+begin
+process(RAM_WR,RAM_RE)
+	begin
+		 if(RAM_WR='1') then
+			RAM(to_integer(unsigned(RAM_ADDR))) <= RAM_DATA_IN;
+		 end if;
+		 if(RAM_RE='1') then
+			RAM_DATA_OUT <= RAM(to_integer(unsigned(RAM_ADDR)));
+		 end if;
+		end if;
+	end process;
+end Behavioral;

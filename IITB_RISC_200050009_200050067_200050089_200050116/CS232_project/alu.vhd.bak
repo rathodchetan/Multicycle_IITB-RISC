@@ -1,0 +1,57 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+--library work;
+--use work.add.all;
+
+entity alu is
+		port(A, B: in std_logic_vector(15 downto 0);
+		result: out std_logic_vector(15 downto 0);
+		cin: in std_logic;
+		sel: in std_logic_vector(1 downto 0);
+		CY, Z: out std_logic);
+end entity;
+
+architecture alu_arc of alu is
+
+	signal carryOut: std_logic_vector(16 downto 1);
+	signal res1,res2,res3 : std_logic_vector(15 downto 0);
+	signal carry_add,carry_sub : std_logic;
+
+	component adder
+		port(x_in : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+	 	y_in : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+	 	carry_in : IN STD_LOGIC;
+	 	sum : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+	 	carry_out : OUT STD_LOGIC);
+	 end component;
+		
+	component Sub16 is	
+		port(
+			A, B: in std_logic_vector(15 downto 0);	
+			S: out std_logic_vector(15 downto 0);	
+			c16: out std_logic);	
+	end component;
+
+begin
+	instadd0: adder
+		port map(A,B,cin,res2,carry_add);
+	process(A,B,sel,res2,res3)
+	instsub0: substractor
+		port map(A,B,res3,carry_sub);
+	begin
+		if(sel = "00") then
+			res1 <= res2;
+			CY <= carry_add;
+		elsif(sel = "01") then
+			res1 <= res3;
+			CY <= carry_sub;
+		else
+			res1 <= A;
+		end if;
+	end process;
+	
+	Z <= '1' when (to_integer(unsigned(res1)) = 0) else '0';
+	result <= res1;
+	
+end architecture;	

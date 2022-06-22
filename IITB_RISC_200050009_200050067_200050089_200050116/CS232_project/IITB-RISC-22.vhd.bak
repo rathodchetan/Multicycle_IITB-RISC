@@ -1,0 +1,66 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity IITB-RISC-22 is
+	port(
+		clk,rst: in std_logic;
+		
+	);
+end entity;
+
+architecture risc_arch of IITB-RISC-22 is
+	
+	component temp_reg
+		port(
+			dataIn: in std_logic_vector (15 downto 0);
+         data: inout std_logic_vector (15 downto 0);
+         dataOut: out std_logic_vector (15 downto 0);
+         wr_l, rd_l: in std_logic
+		);
+	end component;
+	
+	component ROM
+		port(
+			ROM_Addr: in std_logic_vector( 15 downto 0); 
+			ROM_Data_Out: out std_logic_vector (15 downto 0)
+		);
+	end component;
+	
+	component reg_file
+		port(
+			RF_D3: in std_logic_vector( 15 downto 0); 
+			RF_A1, RF_A2, RF_A3: in std_logic_vector( 2 downto 0);
+			Re_en, Wr_en: in std_logic; 
+			RF_D1, RF_D2: out std_logic_vector (15 downto 0)
+		);
+	end component;
+	
+	signal to_T1,to_T2,out_ir,to_pc,to_rom,to_ir: std_logic_vector(15 downto 0);
+	signal pc_w, pc_r, ir_w, ir_r, rf_w, rf_r: std_logic;
+
+begin
+
+	PC : temp_reg
+		port map(to_pc=>dataIn,
+					pc_w=>wr_l,
+					pc_r=>rd_l,
+					dataOut=>to_rom);
+	ROM_inst: ROM
+		port map(to_rom=>ROM_Addr,
+					ROM_Data_Out=>to_ir);
+	IR : temp_reg
+		port map(to_ir=>dataIn,
+					ir_w=>wr_l,
+					ir_r=>rd_l,
+					dataOut=>out_ir);			
+	RF : reg_file
+		port map(to_D3=>RF_D3,
+				to_A1=>RF_A1, to_A2=>RF_A2, to_A3=>RF_A3,
+				rf_r=>Re_en, rf_w=>Wr_en
+				to_T1=>RF_D1, to_T2=>RF_D2);
+	T1 : temp_reg	
+		port map(
+	
+	
+
+end architecture;
